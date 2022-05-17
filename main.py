@@ -1,7 +1,7 @@
 import cv2
 import mediapipe as mp
 import time
-import controller as cnt
+# import controller as cnt
 
 
 time.sleep(2.0)
@@ -38,13 +38,13 @@ with mp_hand.Hands(min_detection_confidence=0.5,
                 fingers.append(1)
             else:
                 fingers.append(0)
-            for id in range(1,5):~`~~`
+            for id in range(1,5):
                 if lmList[tipIds[id]][2] < lmList[tipIds[id]-2][2]:
                     fingers.append(1)
                 else:
                     fingers.append(0)
             total=fingers.count(1)
-            cnt.led(total)
+            # cnt.led(total)
             if total==0:
                 cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
                 cv2.putText(image, "0", (45, 375), cv2.FONT_HERSHEY_SIMPLEX,
